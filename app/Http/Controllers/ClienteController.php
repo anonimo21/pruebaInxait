@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ClienteExport;
+use App\Exports\ClienteExportQuery;
 use App\Http\Requests\StoreClienteRequest;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClienteController extends Controller
 {
@@ -34,6 +37,11 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function export()
+    {
+        return Excel::download(new ClienteExportQuery, 'clientes.xlsx');
+    }
+
     public function store(StoreClienteRequest $request)
     {
         if (!$request->ajax()) {

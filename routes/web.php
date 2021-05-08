@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\CiudadesController;
+use App\Http\Controllers\CiudadController;
 use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\DepartamentosController;
+use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\WelcomeController;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
+Route::get('clientes/export', [ClienteController::class, 'export'])->name('clientes.export');
 Route::resource('clientes', ClienteController::class);
 
-
-Route::get('departamentos', [DepartamentosController::class, 'index']);
-Route::get('ciudades/{departamento}', [CiudadesController::class, 'index']);
+Route::get('departamentos', [DepartamentoController::class, 'index']);
+Route::get('ciudades/{departamento}', [CiudadController::class, 'index']);

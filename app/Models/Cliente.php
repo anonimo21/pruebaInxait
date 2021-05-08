@@ -19,6 +19,7 @@ class Cliente extends Model
         'ciudad_id',
         'celular',
         'correo',
-        'terminos'
+        'terminos',
+        'created_at'
     ];
 }
