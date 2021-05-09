@@ -126,7 +126,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 text-center">
-                    Copyright &copy; Your Website
+                    Copyright &copy;
                     <script>
                         document.write(new Date().getFullYear());
 

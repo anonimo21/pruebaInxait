@@ -55,6 +55,7 @@ class ClienteIndex extends Component
             ->join('ciudades as cd', 'cd.id', 'c.ciudad_id')
             ->select('c.nombres', 'c.apellidos', 'c.cedula', 'd.nombre as departamento', 'cd.nombre as ciudad', 'c.celular', 'c.correo', 'c.terminos', 'c.created_at')
             ->where('c.nombres', 'LIKE', '%' . $this->search . '%')
+            ->orWhere('c.apellidos', 'LIKE', '%' . $this->search . '%')
             ->orderBy('c.id', 'desc')
             ->paginate(5);
 
